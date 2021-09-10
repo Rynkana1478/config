@@ -1,0 +1,86 @@
+do
+repeat
+    wait()
+until game:IsLoaded()
+local rejoin = function()
+game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end
+local Mylvl = game.Players.LocalPlayer.Data.Level.Value
+local fragment = game:GetService("Players").LocalPlayer.Data.Fragments.Value
+local kaitan = function()
+for x,d in pairs({"Combat","BlackLeg","Electro","Fishman Karate","DragonClaw","Superhuman"}) do
+if Mylvl == 1 or Mylvl <= 700 then 
+_G.Enabled = true
+_G.Selected_Weapons = tostring(d)
+_G.AutoQuest = true
+_G.Auto_New_World = true
+_G.Superhuman_Farm = true
+_G.Grab_All_Fruits = true
+_G.Eat_Fruits = "Rumble-Rumble"
+_G.Full_Settings = {"Superhuman","Awake","Legendary_Swords"} 
+elseif Mylvl == 700 or Mylvl <= 1100 then
+_G.Enabled = true
+_G.Selected_Weapons = tostring(d)
+_G.AutoQuest = true
+_G.Auto_New_World = false 
+_G.Superhuman_Farm = true
+_G.Grab_All_Fruits = true
+_G.Eat_Fruits = "Rumble-Rumble"
+_G.Full_Settings = {"Superhuman","Awake","Legendary_Swords"} 
+elseif Mylvl == 1100 or Mylvl <=1525 and fragment <= 25000 then 
+rejoin()
+_G.Enabled = true 
+_G.AutoQuest = true
+_G.Auto_New_World = false 
+_G.Superhuman_Farm = true
+_G.Selected_Weapons = tostring(d)
+_G.Auto_Legendary_Sword = true
+_G.Select_Stats = {"Melee","Defense"}
+_G.Eat_Fruits = "Rumble-Rumble"
+_G.Auto_Hop = true
+_G.Full_Settings = {"Superhuman","Awake","Legendary_Swords"} 
+_G.Selected_Dungeons = "Rumble"
+_G.Auto_Buy_Chips = true
+_G.Auto_Start = true
+_G.Auto_Hop = false
+_G.KillAura_Dungeon = true 
+_G.AutoAwaken = true
+_G.AutoFarm_Dungeon = true
+elseif Mylvl >= 1100 or Mylvl <=1525 and fragment == 25000 or fragment >= 25000 then 
+rejoin()
+_G.Enabled = true
+_G.Selected_Weapons = tostring(d)
+_G.AutoQuest = true
+_G.Auto_New_World = false 
+_G.Superhuman_Farm = true
+_G.Grab_All_Fruits = true
+_G.Eat_Fruits = "Rumble-Rumble"
+_G.Auto_Hop = false
+_G.Full_Settings = {"Superhuman","Awake","Legendary_Swords"} 
+_G.Selected_Dungeons = "Rumble"
+_G.Auto_Buy_Chips = false
+_G.Auto_Start = false
+_G.KillAura_Dungeon = false
+_G.AutoAwaken = false
+_G.AutoFarm_Dungeon = false
+elseif Mylvl == 1525 then 
+rejoin()
+_G.Superhuman_Farm = true
+_G.Selected_Weapons = tostring(d)
+_G.Auto_Legendary_Sword = true
+_G.Select_Stats = {"Melee","Defense"}
+_G.Eat_Fruits = "Rumble-Rumble"
+_G.Auto_Hop = true
+_G.Full_Settings = {"Superhuman","Awake","Legendary_Swords"} 
+_G.Selected_Dungeons = "Rumble"
+_G.Auto_Buy_Chips = true
+_G.Auto_Start = true
+_G.Auto_Hop = true
+_G.KillAura_Dungeon = true 
+_G.AutoAwaken = true
+_G.AutoFarm_Dungeon = true
+end
+end
+end
+end
+game:GetService("RunService").RenderStepped:Connect(kaitan)
